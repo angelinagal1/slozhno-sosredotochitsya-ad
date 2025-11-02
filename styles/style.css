@@ -1,5 +1,3 @@
-/* Добавьте эти стили в существующий style.css */
-
 /* Стили для кнопок переключения тем */
 .header__theme-menu-button {
   background: transparent;
@@ -25,29 +23,31 @@
   border-bottom: 1px solid var(--menu-text-color, #FF0070);
 }
 
+/* Активная кнопка - ваш JS добавляет этот класс и disabled атрибут */
 .header__theme-menu-button_active {
   outline: 1px solid var(--menu-text-color, #FF0070);
   pointer-events: none;
 }
 
-/* Стили для кнопки "Авто" при системной теме */
-@media (prefers-color-scheme: light) {
-  .theme-auto .header__rec {
-    display: none;
-  }
-  
-  .theme-auto .header__title,
-  .theme-auto .footer__title {
-    text-shadow: 4px 4px 0 var(--accent-color);
-  }
-  
-  .theme-auto .content-section__text a {
-    text-shadow: 2px 2px 0 var(--accent-color);
-  }
+/* Заблокированная кнопка (через disabled атрибут) */
+.header__theme-menu-button:disabled {
+  pointer-events: none;
+  cursor: default;
 }
 
-@media (prefers-color-scheme: dark) {
-  .theme-auto .header__rec {
-    display: flex;
-  }
+/* Стили для разных тем */
+.theme-dark .header__theme-menu-button {
+  color: var(--menu-text-color, #FF0070);
+}
+
+.theme-dark .header__theme-menu-button:hover {
+  outline: 1px solid var(--menu-hover-color, rgba(255, 0, 112, 0.4));
+}
+
+.theme-light .header__theme-menu-button {
+  color: var(--menu-text-color, #353430);
+}
+
+.theme-light .header__theme-menu-button:hover {
+  outline: 1px solid var(--menu-hover-color, rgba(50, 49, 45, 0.4));
 }
