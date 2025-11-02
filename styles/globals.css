@@ -6,15 +6,12 @@
 }
 
 html {
-  /* Плавный скролл */
   scroll-behavior: smooth;
 }
 
 body {
-  /* Предотвращение появления горизонтального скролла */
   max-inline-size: 1440px;
   margin: 0 auto;
-  /* Предотвращение появления горизонтального скролла */
   overflow-x: hidden;
 }
 
