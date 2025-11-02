@@ -1,31 +1,80 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  background-color: var(--bg-color, #000028);
+  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   color: var(--text-color, #F1B2CE);
+  font-family: var(--main-font, 'IBM Plex mono'), monospace;
+  font-size: var(--font-size-normal, 18px);
   line-height: 1.3;
+  background-color: var(--bg-color, #000028);
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   min-inline-size: 375px;
-  max-inline-size: 1440px;
   margin: 0 auto;
+}
+
+/* Общие декоративные элементы */
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-end: 1px solid var(--decor-color, #FF0070);
+  border-block-start: 1px solid var(--decor-color, #FF0070);
+  inset-inline-end: var(--padding-mobile, 10px);
+  inset-block-start: var(--padding-mobile, 10px);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-start: 1px solid var(--decor-color, #FF0070);
+  border-block-end: 1px solid var(--decor-color, #FF0070);
+  inset-inline-start: var(--padding-mobile, 10px);
+  inset-block-end: var(--padding-mobile, 10px);
 }
 
 /* Шапка */
 .header {
-  position: relative;
-  padding: 10px;
-  block-size: 100vb;
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
-  gap: 55px;
+  grid-template-rows: 1fr min-content 1fr;
   align-items: center;
+  padding: var(--padding-mobile, 10px);
+  block-size: 100vb;
 }
 
-/* Меню темы */
+/* Элемент REC */
+.header__decoration {
+  position: absolute;
+  display: var(--rec-display, flex);
+  align-items: center;
+  gap: 10px;
+  inset-inline-end: 28px;
+  inset-block-start: var(--padding-mobile, 10px);
+  color: var(--accent-color, #FF0070);
+  line-height: 1.38;
+  text-transform: uppercase;
+}
+
+.header__decoration::after {
+  content: "";
+  display: inline-block;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color, #FF0070);
+  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
+}
+
+/* Меню тем */
 .header__theme-menu {
   justify-self: end;
   align-self: start;
@@ -36,26 +85,19 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .header__theme-menu-button {
-  background: transparent;
-  border: none;
+  border: 1px solid transparent;
+  padding: 2px 13px;
   color: var(--menu-text-color, #FF0070);
-  font-family: inherit;
-  font-size: var(--font-size-normal, 14px);
-  padding: 2px 12px;
-  cursor: pointer;
-  font-weight: normal;
   line-height: 1;
   text-transform: lowercase;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--menu-hover-color, rgba(255, 0, 112, 0.4));
+  border-color: var(--menu-hover-color, rgba(255, 0, 112, 0.4));
 }
 
 .header__theme-menu-button:focus {
@@ -63,149 +105,78 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--menu-text-color, #FF0070);
+  border-block-end-color: var(--menu-text-color, #FF0070);
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--menu-text-color, #FF0070);
+  border-color: var(--menu-text-color, #FF0070);
   pointer-events: none;
 }
 
-.header__theme-menu-button:disabled {
-  pointer-events: none;
-}
-
-/* Декоративный элемент REC */
-.header__rec {
-  position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 38px;
-  color: var(--accent-color, #FF0070);
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-size: var(--font-size-normal, 14px);
-  line-height: 1.39;
-  text-transform: uppercase;
-}
-
-.header__rec::after {
-  content: '';
-  display: inline-block;
-  inline-size: 9px;
-  block-size: 9px;
-  background-color: var(--accent-color, #FF0070);
-  border-radius: 50%;
-  margin-inline-start: 8px;
-  animation: pulse 2s infinite;
-  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
-}
-
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-/* Заголовок с адаптивным размером */
+/* Заголовок */
 .header__title {
-  margin: 0;
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-weight: bold;
-  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
+  color: var(--title-color, #DB00FF);
+  font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
-  color: var(--title-color, #DB00FF);
-}
-
-/* Декоративный класс для фона */
-.title-decor {
-  background-color: var(--accent-color, #FF0070);
-  color: var(--bg-color, #000028);
-  padding: 0;
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-weight: bold;
-  justify-self: start;
-  line-height: 1.3;
+  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
 }
 
 .header__description {
-  margin: 0;
-  max-inline-size: 491px;
-  font-size: var(--font-size-normal, 14px);
-}
-
-/* Уголки для шапки */
-.header::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-end: 1px solid var(--decor-color, #FF0070);
-  border-block-start: 1px solid var(--decor-color, #FF0070);
-}
-
-.header::after {
-  content: '';
-  position: absolute;
-  inset-block-end: 10px;
-  inset-inline-start: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-start: 1px solid var(--decor-color, #FF0070);
-  border-block-end: 1px solid var(--decor-color, #FF0070);
+  justify-self: end;
+  align-self: center;
+  inline-size: min(100%, 355px);
+  font-weight: 700;
+  background-color: var(--accent-color, #FF0070);
+  color: var(--bg-color, #000028);
 }
 
 /* Основной контент */
 .main {
-  padding: 40px 10px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 50px;
+  padding: 40px var(--padding-mobile, 10px);
 }
 
-.content-section {
+/* Секции */
+.section {
   display: grid;
   gap: 20px;
 }
 
-.content-section__title {
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-weight: bold;
-  font-size: var(--font-size-large, 18px);
-  margin: 0;
-  line-height: 1.3;
+.section__title {
+  color: var(--accent-color, #FF0070);
+  font-weight: 700;
+  font-size: inherit;
 }
 
-.content-section__text {
-  display: grid;
+.section__subtitle {
+  background-color: var(--accent-color, #FF0070);
+  color: var(--bg-color, #000028);
+  font-weight: 700;
+}
+
+.section__text {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  font-size: var(--font-size-normal, 14px);
-  line-height: 1.3;
 }
 
-/* Стили для статей */
 .article {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
-.article__title {
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-weight: bold;
-  font-size: var(--font-size-medium, 16px);
-  margin: 0;
-  line-height: 1.3;
-}
-
-/* Ссылки в тексте */
+/* Ссылки */
 .link {
-  color: var(--text-color, #F1B2CE);
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
 }
 
 .link:hover {
-  border-block-end: 1px solid var(--text-color, #F1B2CE);
+  border-block-end: 1px solid currentColor;
 }
 
 .link:focus {
@@ -213,110 +184,58 @@
 }
 
 .link:focus-visible {
-  outline: 1px solid var(--text-color, #F1B2CE);
+  outline: 1px solid currentColor;
 }
 
 /* Галерея */
 .gallery {
-  padding: 0 10px;
-  margin-block-end: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-small, 10px);
 }
 
-.gallery__title {
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-weight: bold;
-  font-size: var(--font-size-large, 18px);
-  margin-block-end: 10px;
-  line-height: 1.3;
-}
-
-.gallery__grid {
+.gallery__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
+  gap: var(--gap-small, 10px);
 }
 
 .gallery__image {
+  display: block;
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
-  display: block;
+  object-position: center;
 }
 
 /* Футер */
 .footer {
-  position: relative;
-  padding: 10px;
-  block-size: 100vb;
   display: grid;
   place-items: center;
-  text-align: center;
+  padding: var(--padding-mobile, 10px);
+  block-size: 100vb;
 }
 
 .footer__title {
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-weight: bold;
-  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
+  color: var(--title-color, #DB00FF);
+  font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
-  color: var(--title-color, #DB00FF);
-  margin: 0;
+  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
 }
 
-.footer__text {
-  font-family: var(--main-font, 'IBM Plex Mono', monospace);
-  font-size: var(--font-size-normal, 14px);
-  color: var(--text-color, #F1B2CE);
-  margin: 0;
-}
-
-/* Уголки для футера */
-.footer::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-end: 1px solid var(--decor-color, #FF0070);
-  border-block-start: 1px solid var(--decor-color, #FF0070);
-}
-
-.footer::after {
-  content: '';
-  position: absolute;
-  inset-block-end: 10px;
-  inset-inline-start: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-start: 1px solid var(--decor-color, #FF0070);
-  border-block-end: 1px solid var(--decor-color, #FF0070);
-}
-
-/* Медиазапрос для экранов больше 768px */
+/* Адаптив для планшетов */
 @media (width >= 768px) {
-  .header {
-    padding: 20px;
-    gap: 162px;
+  :root {
+    --padding-mobile: 20px;
   }
   
   .header__theme-menu {
     margin-block-start: 170px;
   }
   
-  .header__rec {
-    inset-block-start: 20px;
-    inset-inline-end: 48px;
-  }
-  
-  .header::before {
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
-  }
-  
-  .header::after {
-    inset-block-end: 20px;
-    inset-inline-start: 20px;
+  .header__decoration {
+    inset-block-start: var(--padding-mobile, 20px);
+    inset-inline-end: 38px;
   }
   
   .header__title {
@@ -324,72 +243,57 @@
   }
   
   .header__description {
-    justify-self: end;
-    inline-size: 364px;
+    inline-size: min(100%, 364px);
   }
   
   .main {
-    padding: 60px 20px;
     gap: 80px;
+    padding: 60px var(--padding-mobile, 20px);
   }
   
-  .content-section {
+  .section {
     grid-template-columns: 1fr 2fr;
-    gap: 20px;
   }
   
-  .gallery {
-    padding: 0 20px;
-    margin-block-end: 60px;
+  .section:first-of-type .section__title {
+    grid-row: span 2;
   }
   
-  .gallery__grid {
+  .section:nth-of-type(3) .section__title {
+    grid-row: span 5;
+  }
+  
+  .gallery__list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: var(--gap-medium, 20px);
   }
   
   .gallery__image:nth-child(1) {
-    grid-column: 1 / 3;
+    grid-column: span 2;
   }
   
   .gallery__image:nth-child(2) {
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
+    grid-row: span 2;
   }
   
   .gallery__image:nth-child(3) {
-    grid-column: 1 / 2;
-    grid-row: 2 / 4;
+    grid-row: span 2;
   }
   
   .gallery__image:nth-child(5) {
-    grid-column: 2 / 4;
-  }
-  
-  .footer {
-    padding: 20px;
+    grid-column: span 2;
   }
   
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-  
-  .footer::before {
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
-  }
-  
-  .footer::after {
-    inset-block-end: 20px;
-    inset-inline-start: 20px;
-  }
 }
 
-/* Медиазапрос для экранов больше 1024px */
+/* Адаптив для десктопа */
 @media (width >= 1024px) {
   .header__theme-menu {
     justify-self: center;
-    align-self: start;
+    align-self: center;
     margin-block-start: 0;
   }
   
@@ -398,14 +302,13 @@
   }
   
   .header__description {
-    inline-size: 491px;
+    inline-size: min(100%, 491px);
   }
   
-  .content-section__text {
+  .section:nth-of-type(2) .section__text {
+    grid-column: 2 / 3;
+    display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  
-  .content-section:nth-child(3) .content-section__text {
-    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
