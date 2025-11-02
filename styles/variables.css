@@ -1,0 +1,26 @@
+:root {
+  /* Цвета тёмной темы */
+  --bg-color: #000028;
+  --text-color: #F1B2CE;
+  --accent-color: #FF0070;
+  --title-color: #DB00FF;
+  --decor-color: #FF0070;
+  --menu-text-color: #FF0070;
+  --menu-hover-color: rgba(255, 0, 112, 0.4);
+  
+  /* Фоновое изображение */
+  --bg-image: url("../images/cover-image-dark.png");
+  
+  /* Шрифты */
+  --main-font: 'IBM Plex mono', monospace;
+  --font-size-normal: 18px;
+  --font-size-medium: 18px;
+  --font-size-large: 18px;
+  
+  /* Отступы */
+  --padding-mobile: 10px;
+  --padding-desktop: 20px;
+  --gap-small: 10px;
+  --gap-medium: 20px;
+  --gap-large: 50px;
+}
