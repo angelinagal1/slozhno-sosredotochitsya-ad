@@ -19,7 +19,12 @@
   --bg-image: url("../images/cover-image-light.png");
 }
 
-/* Дублируем переменные для системной светлой темы */
+/* REC должен быть скрыт в светлой теме */
+.theme-light .header__decoration {
+  display: none;
+}
+
+/* Для системной светлой темы */
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color: #FFF1F7;
@@ -31,32 +36,7 @@
     --menu-hover-color: rgba(50, 49, 45, 0.4);
     --bg-image: url("../images/cover-image-light.png");
   }
-}
-
-.theme-light .page {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  background-image: var(--bg-image);
-}
-
-.theme-light .header__decoration {
-  display: none;
-}
-
-.theme-light .header__theme-menu-button {
-  color: var(--menu-text-color);
-}
-
-.theme-light .header__theme-menu-button:hover {
-  border-color: var(--menu-hover-color);
-}
-
-.theme-light .header__theme-menu-button_active {
-  border-color: var(--menu-text-color);
-}
-
-/* Для системной светлой темы */
-@media (prefers-color-scheme: light) {
+  
   .header__decoration {
     display: none;
   }
