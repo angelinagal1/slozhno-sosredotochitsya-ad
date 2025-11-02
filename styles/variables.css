@@ -2,3 +2,11 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+:root {
+  --bg-color: ;
+  --text-color: ;
+  --accent-color: ;
+  --card-bg: ;
+  --gap: 20px;
+  --font-family-main: 'Your-Font', sans-serif;
+}
