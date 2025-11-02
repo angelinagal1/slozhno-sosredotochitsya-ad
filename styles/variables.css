@@ -1,4 +1,4 @@
-/* variables.css - базовые переменные для тёмной темы (по умолчанию) */
+/* variables.css - переменные для тёмной темы (основной) */
 
 :root {
   /* Цвета тёмной темы */
@@ -14,14 +14,14 @@
   --bg-image: url("../images/cover-image-dark.png");
   
   /* Шрифты */
-  --main-font: 'IBM Plex Mono', monospace;
-  --font-size-normal: 14px;
-  --font-size-medium: 16px;
+  --main-font: 'IBM Plex mono', monospace;
+  --font-size-normal: 18px;
+  --font-size-medium: 18px;
   --font-size-large: 18px;
   
   /* Отступы */
-  --padding-mobile: 20px;
-  --padding-desktop: 40px;
+  --padding-mobile: 10px;
+  --padding-desktop: 20px;
   --gap-small: 10px;
   --gap-medium: 20px;
   --gap-large: 50px;
