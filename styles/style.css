@@ -70,18 +70,8 @@
   color: var(--accent-color, #FF0070);
   font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-.header__rec-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent-color, #FF0070);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
 .header__rec::after {
   content: '';
   display: inline-block;
