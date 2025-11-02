@@ -1,42 +1,75 @@
-/* Глобальные стили для проекта, их можно дополнять и менять по желанию */
-
+/* Глобальные сбросы стилей */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-body {
-  min-inline-size: 375px;
-  max-inline-size: 1440px;
-  margin: 0 auto;
+html {
+  /* Плавный скролл */
+  scroll-behavior: smooth;
 }
 
+body {
+  /* Предотвращение появления горизонтального скролла */
+  max-inline-size: 1440px;
+  margin: 0 auto;
+  /* Предотвращение появления горизонтального скролла */
+  overflow-x: hidden;
+}
+
+/* Убираем стандартные отступы */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p {
-  margin: 0;
-}
-
-ul {
+p,
+ul,
+ol,
+li,
+blockquote {
   margin: 0;
   padding: 0;
+}
+
+/* Убираем стандартные стили списков */
+ul,
+ol {
   list-style: none;
 }
 
-picture {
-  margin: 0;
-  padding: 0;
-}
-
+/* Наследование шрифта для кнопок и инпутов */
 button,
-a {
+input,
+textarea {
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
+  background-color: transparent;
+}
+
+/* Убираем стандартные стили кнопок */
+button {
+  border: none;
+  padding: 0;
+}
+
+/* Убираем стандартное подчёркивание у ссылок */
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* Скрываем элементы с aria-hidden */
+[aria-hidden="true"] {
+  display: none;
 }
