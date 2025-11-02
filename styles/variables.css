@@ -1,7 +1,7 @@
 /* variables.css - переменные для тёмной темы (основной) */
 
 :root {
-  /* Цвета тёмной темы */
+  /* Цвета тёмной темы по умолчанию */
   --bg-color: #000028;
   --text-color: #F1B2CE;
   --accent-color: #FF0070;
@@ -9,6 +9,8 @@
   --decor-color: #FF0070;
   --menu-text-color: #FF0070;
   --menu-hover-color: rgba(255, 0, 112, 0.4);
+  --bg-image: url("../images/cover-image-dark.png");
+}
   
   /* Фоновое изображение */
   --bg-image: url("../images/cover-image-dark.png");
