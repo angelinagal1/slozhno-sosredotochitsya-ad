@@ -153,6 +153,7 @@
   color: var(--accent-color, #FF0070);
   font-weight: 700;
   font-size: inherit;
+  background-color: transparent;
 }
 
 .section__subtitle {
