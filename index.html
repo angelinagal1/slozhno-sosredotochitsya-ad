@@ -6,30 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Сложно сосредоточиться</title>
-    <script src="./scripts/script.js"></script>
     
-    <!-- Глобальные стили и переменные -->
-    <link rel="stylesheet" href="./styles/globals.css">
+    <!-- ПРАВИЛЬНЫЙ ПОРЯДОК ПОДКЛЮЧЕНИЯ -->
     <link rel="stylesheet" href="./styles/variables.css">
-    <!-- Основные стили -->
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- Темы -->
-    <link rel="stylesheet" href="./styles/themes/dark.css">
-    <link rel="stylesheet" href="./styles/themes/light.css">
+    <link rel="stylesheet" href="./styles/dark.css">
+    <link rel="stylesheet" href="./styles/light.css">
+    <link rel="stylesheet" href="./styles/globals.css">
+    
     <!-- Фавиконка -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    
+    <script src="./scripts/script.js"></script>
   </head>
   <body class="page">
     <header class="header decorated-zone">
       <nav class="header__theme-menu">
-        <div style="display: flex; gap: 10px;">
-            <button class="header__theme-menu-button header__theme-menu-button_type_light" 
-                    onclick="switchTheme('light')">День</button>
-            <button class="header__theme-menu-button header__theme-menu-button_type_auto"
-                    onclick="switchTheme('auto')">Авто</button>
-            <button class="header__theme-menu-button header__theme-menu-button_type_dark"
-                    onclick="switchTheme('dark')">Неон</button>
-        </div>
+        <ul class="header__theme-menu-list">
+          <li class="header__theme-menu-item">
+            <button class="header__theme-menu-button header__theme-menu-button_type_light">День</button>
+          </li>
+          <li class="header__theme-menu-item">
+            <button class="header__theme-menu-button header__theme-menu-button_type_auto">Авто</button>
+          </li>
+          <li class="header__theme-menu-item">
+            <button class="header__theme-menu-button header__theme-menu-button_type_dark">Неон</button>
+          </li>
+        </ul>
       </nav>
       
       <div class="header__decoration" aria-hidden="true">REC</div>
