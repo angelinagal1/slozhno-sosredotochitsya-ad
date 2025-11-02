@@ -3,10 +3,11 @@
   и их переопределение под различные устройства
 */
 :root {
-  --bg-color: ;
-  --text-color: ;
-  --accent-color: ;
-  --card-bg: ;
-  --gap: 20px;
-  --font-family-main: 'Your-Font', sans-serif;
+  --bg-color: #000000;
+  --text-color: #FFFFFF;
+  --accent-color: #FF0070;
+  --title-color: #FF0070;
+  --menu-text-color: #FFFFFF;
+  --menu-hover-color: rgba(255, 0, 112, 0.4);
+  --decor-color: #FF0070;
 }
