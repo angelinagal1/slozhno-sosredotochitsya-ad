@@ -340,3 +340,35 @@
     gap: 20px;
   }
 }
+/* Адаптив для десктопа */
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+    margin-block-start: 0;
+  }
+  
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+  
+  .header__description {
+    inline-size: min(100%, 491px);
+  }
+  
+  /* Исправление для второй секции на десктопе */
+  .section:nth-of-type(2) {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .section:nth-of-type(2) .section__text {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .section:nth-of-type(2) .article {
+    grid-column: span 1;
+  }
+}
