@@ -34,31 +34,22 @@
 }
 
 .theme-light .page {
+  /* Вам также нужно будет написать ряд подобных селекторов */
   background-color: var(--bg-color);
   color: var(--text-color);
   background-image: var(--bg-image);
 }
 
-.theme-light .header__rec {
-  display: none;
-}
-
-/* Стили кнопок для светлой темы */
 .theme-light .header__theme-menu-button {
   color: var(--menu-text-color);
 }
 
 .theme-light .header__theme-menu-button:hover {
-  outline: 1px solid var(--menu-hover-color);
-}
-
-.theme-light .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--menu-text-color);
+  border-color: var(--menu-hover-color);
 }
 
 .theme-light .header__theme-menu-button_active {
-  outline: 1px solid var(--menu-text-color);
-  pointer-events: none;
+  border-color: var(--menu-text-color);
 }
 
 /* Корректировка теней для светлой темы */
@@ -67,22 +58,18 @@
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
-.theme-light .content-section__text a {
+.theme-light .link {
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 /* Для системной светлой темы */
 @media (prefers-color-scheme: light) {
-  .header__rec {
-    display: none;
-  }
-  
   .header__title,
   .footer__title {
     text-shadow: 4px 4px 0 var(--accent-color);
   }
   
-  .content-section__text a {
+  .link {
     text-shadow: 2px 2px 0 var(--accent-color);
   }
 }
