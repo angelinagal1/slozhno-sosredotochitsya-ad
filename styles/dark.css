@@ -19,21 +19,7 @@
   --bg-image: url("../images/cover-image-dark.png");
 }
 
-.theme-dark .page {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  background-image: var(--bg-image);
-}
-
-
-.theme-dark .header__theme-menu-button {
-  color: var(--menu-text-color);
-}
-
-.theme-dark .header__theme-menu-button:hover {
-  border-color: var(--menu-hover-color);
-}
-
-.theme-dark .header__theme-menu-button_active {
-  border-color: var(--menu-text-color);
+/* REC должен быть виден ТОЛЬКО в тёмной теме */
+.theme-dark .header__decoration {
+  display: flex;
 }
