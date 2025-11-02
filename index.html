@@ -22,18 +22,14 @@
   <body class="page">
     <header class="header decorated-zone">
       <nav class="header__theme-menu">
-        <ul class="header__theme-menu-list">
-          <!-- КАЖДАЯ кнопка должна быть в ОТДЕЛЬНОМ <li> -->
-          <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_light">День</button>
-          </li>
-          <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_auto">Авто</button>
-          </li>
-          <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_dark">Неон</button>
-          </li>
-        </ul>
+        <div style="display: flex; gap: 10px;">
+            <button class="header__theme-menu-button header__theme-menu-button_type_light" 
+                    onclick="switchTheme('light')">День</button>
+            <button class="header__theme-menu-button header__theme-menu-button_type_auto"
+                    onclick="switchTheme('auto')">Авто</button>
+            <button class="header__theme-menu-button header__theme-menu-button_type_dark"
+                    onclick="switchTheme('dark')">Неон</button>
+        </div>
       </nav>
       
       <div class="header__decoration" aria-hidden="true">REC</div>
