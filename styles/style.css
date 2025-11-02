@@ -1,4 +1,4 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+ /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
@@ -51,10 +51,10 @@
   block-size: 100vb;
 }
 
-/* Элемент REC - по умолчанию скрыт */
+/* Элемент REC */
 .header__decoration {
   position: absolute;
-  display: none;
+  display: flex;
   align-items: center;
   gap: 10px;
   inset-inline-end: 28px;
@@ -72,6 +72,13 @@
   border-radius: 50%;
   background-color: var(--accent-color, #FF0070);
   box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
 /* Меню тем */
@@ -314,7 +321,7 @@
 @media (width >= 1024px) {
   .header__theme-menu {
     justify-self: center;
-    align-self: start;
+    align-self: center;
     margin-block-start: 0;
   }
   
@@ -329,11 +336,7 @@
   .section:nth-of-type(2) .section__text {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-  }
-  
-  .section:nth-of-type(2) .article {
-    grid-column: span 1;
   }
 }
