@@ -25,9 +25,6 @@
   background-image: var(--bg-image);
 }
 
-.theme-dark .header__decoration {
-  display: flex;
-}
 
 .theme-dark .header__theme-menu-button {
   color: var(--menu-text-color);
