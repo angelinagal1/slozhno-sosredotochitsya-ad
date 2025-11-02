@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Сложно сосредоточиться</title>
     
-    <!-- ПРАВИЛЬНЫЙ ПОРЯДОК ДЛЯ ВАШЕГО JS КОДА -->
+    <!-- ПРАВИЛЬНЫЙ ПОРЯДОК -->
     <link rel="stylesheet" href="./styles/globals.css">
     <link rel="stylesheet" href="./styles/variables.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/light.css">    <!-- Светлая тема -->
-    <link rel="stylesheet" href="./styles/dark.css">     <!-- Тёмная тема -->
+    <link rel="stylesheet" href="./styles/light.css">
+    <link rel="stylesheet" href="./styles/dark.css">
     
-    <!-- Фавиконка -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     
     <script src="./scripts/script.js"></script>
@@ -30,11 +29,13 @@
             <button class="header__theme-menu-button header__theme-menu-button_type_auto">Авто</button>
           </li>
           <li class="header__theme-menu-item">
+            <!-- АКТИВНАЯ КНОПКА В ТЁМНОЙ ТЕМЕ - ваш JS сам установит правильный класс -->
             <button class="header__theme-menu-button header__theme-menu-button_type_dark">Неон</button>
           </li>
         </ul>
       </nav>
       
+      <!-- REC виден только в тёмной теме -->
       <div class="header__decoration" aria-hidden="true">REC</div>
       
       <h1 class="header__title">no focus</h1>
