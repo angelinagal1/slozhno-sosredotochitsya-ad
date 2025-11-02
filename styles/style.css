@@ -51,10 +51,10 @@
   block-size: 100vb;
 }
 
-/* Элемент REC */
+/* Элемент REC - по умолчанию скрыт */
 .header__decoration {
   position: absolute;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 10px;
   inset-inline-end: 28px;
@@ -72,13 +72,6 @@
   border-radius: 50%;
   background-color: var(--accent-color, #FF0070);
   box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
 }
 
 /* Меню тем */
@@ -113,7 +106,6 @@
 
 .header__theme-menu-button:focus-visible {
   border-block-end-color: var(--menu-text-color, #FF0070);
-  outline: none;
 }
 
 .header__theme-menu-button_active {
@@ -322,29 +314,6 @@
 @media (width >= 1024px) {
   .header__theme-menu {
     justify-self: center;
-    align-self: center;
-    margin-block-start: 0;
-  }
-  
-  .header__theme-menu-list {
-    flex-direction: row;
-  }
-  
-  .header__description {
-    inline-size: min(100%, 491px);
-  }
-  
-  .section:nth-of-type(2) .section__text {
-    grid-column: 2 / 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-}
-/* Адаптив для десктопа */
-@media (width >= 1024px) {
-  .header__theme-menu {
-    justify-self: center;
     align-self: start;
     margin-block-start: 0;
   }
@@ -355,11 +324,6 @@
   
   .header__description {
     inline-size: min(100%, 491px);
-  }
-  
-  /* Исправление для второй секции на десктопе */
-  .section:nth-of-type(2) {
-    grid-template-columns: 1fr 2fr;
   }
   
   .section:nth-of-type(2) .section__text {
