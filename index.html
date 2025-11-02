@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="theme-dark">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="color-scheme" content="dark light">
@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="./styles/globals.css">
     <link rel="stylesheet" href="./styles/variables.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/light.css">
     <link rel="stylesheet" href="./styles/dark.css">
+    <link rel="stylesheet" href="./styles/light.css"> 
     
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     
@@ -23,14 +23,19 @@
       <nav class="header__theme-menu">
         <ul class="header__theme-menu-list">
           <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_light">День</button>
+            <button class="header__theme-menu-button header__theme-menu-button_type_light">
+              День
+            </button>
           </li>
           <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_auto">Авто</button>
+            <button class="header__theme-menu-button header__theme-menu-button_active header__theme-menu-button_type_auto" disabled>
+              Авто
+            </button>
           </li>
           <li class="header__theme-menu-item">
-            <!-- АКТИВНАЯ КНОПКА В ТЁМНОЙ ТЕМЕ - ваш JS сам установит правильный класс -->
-            <button class="header__theme-menu-button header__theme-menu-button_type_dark">Неон</button>
+            <button class="header__theme-menu-button header__theme-menu-button_type_dark">
+              Неон
+            </button>
           </li>
         </ul>
       </nav>
