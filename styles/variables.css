@@ -1,30 +1,28 @@
-/* variables.css - переменные для тёмной темы (основной) */
+/*
+  Переменные для вашего проекта
+  и их переопределение под различные устройства
+*/
 
 :root {
-  /* Цвета тёмной темы по умолчанию */
-  --bg-color: #000028;
+  --background-color: #000028;
   --text-color: #F1B2CE;
-  --accent-color: #FF0070;
   --title-color: #DB00FF;
-  --decor-color: #FF0070;
-  --menu-text-color: #FF0070;
-  --menu-hover-color: rgba(255, 0, 112, 0.4);
-  --bg-image: url("../images/cover-image-dark.png");
-}
-  
-  /* Фоновое изображение */
-  --bg-image: url("../images/cover-image-dark.png");
-  
-  /* Шрифты */
+  --accent-color: #FF0070;
+  --decorated-text-color: #000028;
+  --hover-color: rgba(255, 0, 112, 0.40);
+  --background-image: url("../images/cover-image-dark.png");
+
   --main-font: 'IBM Plex mono', monospace;
-  --font-size-normal: 18px;
-  --font-size-medium: 18px;
-  --font-size-large: 18px;
+  --accent-font: 'IBM Plex mono', monospace;
   
-  /* Отступы */
+  --text-size-base: 18px;
+  --text-line-height: 130%;
+  --title-line-height: 82.5%;
+  
   --padding-mobile: 10px;
+  --padding-tablet: 20px;
   --padding-desktop: 20px;
-  --gap-small: 10px;
-  --gap-medium: 20px;
-  --gap-large: 50px;
+  
+  --decorated-element-size: 25px;
+  --rec-dot-size: 9px;
 }
