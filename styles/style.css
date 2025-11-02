@@ -2,4 +2,154 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: var(--bg-color, #000000);
+  color: var(--text-color, #FFFFFF);
+  line-height: 1.3;
+}
+
+/* Шапка */
+.header {
+  position: relative;
+  padding: 20px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+  align-content: center;
+}
+
+/* Меню темы */
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__theme-menu-button {
+  background: transparent;
+  border: none;
+  color: var(--menu-text-color, #FFFFFF);
+  font-family: inherit;
+  font-size: 14px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--menu-hover-color, #FFFFFF);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--menu-text-color, #FFFFFF);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--menu-text-color, #FFFFFF);
+  pointer-events: none;
+}
+
+/* Декоративный элемент REC */
+.header__rec {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: var(--accent-color, #FF0070);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__rec-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color, #FF0070);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Скрыть REC в светлой теме */
+[data-theme="light"] .header__rec {
+  display: none;
+}
+
+/* Заголовок с адаптивным размером */
+.header__title {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.9;
+  color: var(--title-color, #FF0070);
+}
+
+/* Для планшетов и десктопов */
+@media (min-width: 768px) {
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+  
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+}
+
+/* Декоративный класс для фона */
+.title-decor {
+  background-color: var(--accent-color, #FF0070);
+  color: var(--bg-color, #000000);
+  padding: 5px 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  justify-self: start;
+}
+
+.header__description {
+  margin: 0;
+  max-width: 500px;
+  font-size: 14px;
+}
+
+/* Уголки через псевдоэлементы для decorated-zone */
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  top: 20px;
+  right: 20px;
+  border-top: 1px solid var(--decor-color, #FF0070);
+  border-right: 1px solid var(--decor-color, #FF0070);
+}
+
+.decorated-zone::after {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 1px solid var(--decor-color, #FF0070);
+  border-left: 1px solid var(--decor-color, #FF0070);
 }
