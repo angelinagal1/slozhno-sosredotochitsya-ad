@@ -113,6 +113,7 @@
 
 .header__theme-menu-button:focus-visible {
   border-block-end-color: var(--menu-text-color, #FF0070);
+  outline: none;
 }
 
 .header__theme-menu-button_active {
