@@ -340,25 +340,3 @@
     gap: 20px;
   }
 }
-
-/* Специфичные стили для разных тем */
-.theme-dark .header__decoration {
-  display: flex;
-}
-
-.theme-light .header__decoration {
-  display: none;
-}
-
-/* Для системных предпочтений */
-@media (prefers-color-scheme: light) {
-  .theme-auto .header__decoration {
-    display: none;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .theme-auto .header__decoration {
-    display: flex;
-  }
-}
