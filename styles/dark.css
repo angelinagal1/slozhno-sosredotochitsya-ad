@@ -20,7 +20,6 @@
 }
 
 .theme-dark .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
   background-color: var(--bg-color);
   color: var(--text-color);
   background-image: var(--bg-image);
@@ -28,4 +27,22 @@
 
 .theme-dark .header__rec {
   display: flex;
+}
+
+/* Стили кнопок для тёмной темы */
+.theme-dark .header__theme-menu-button {
+  color: var(--menu-text-color);
+}
+
+.theme-dark .header__theme-menu-button:hover {
+  outline: 1px solid var(--menu-hover-color);
+}
+
+.theme-dark .header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--menu-text-color);
+}
+
+.theme-dark .header__theme-menu-button_active {
+  outline: 1px solid var(--menu-text-color);
+  pointer-events: none;
 }
