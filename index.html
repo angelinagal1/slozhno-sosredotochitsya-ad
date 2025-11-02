@@ -19,31 +19,30 @@
   </head>
   <body class="page">
     <header class="header decorated-zone">
-      <nav class="header__theme-menu">
-        <ul class="header__theme-menu-list">
-          <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_light">День</button>
-          </li>
-          <li class="header__theme-menu-item">
-            <button class="header__theme-menu-button header__theme-menu-button_type_auto">Авто</button>
-          </li>
-          <li class="header__theme-menu-item">
-            <!-- АКТИВНАЯ КНОПКА В ТЁМНОЙ ТЕМЕ - ваш JS сам установит правильный класс -->
-            <button class="header__theme-menu-button header__theme-menu-button_type_dark">Неон</button>
-          </li>
-        </ul>
-      </nav>
-      
-      <!-- REC виден только в тёмной теме -->
-      <div class="header__decoration" aria-hidden="true">REC</div>
-      
-      <h1 class="header__title">no focus</h1>
+  <nav class="header__theme-menu">
+    <ul class="header__theme-menu-list">
+      <li class="header__theme-menu-item">
+        <button class="header__theme-menu-button" data-theme="light">День</button>
+      </li>
+      <li class="header__theme-menu-item">
+        <button class="header__theme-menu-button" data-theme="auto">Авто</button>
+      </li>
+      <li class="header__theme-menu-item">
+        <button class="header__theme-menu-button" data-theme="dark">Неон</button>
+      </li>
+    </ul>
+  </nav>
   
-      <p class="header__description title-decor">
-        Что делать, когда не можешь делать ничего<br>
-        Или почему нам так сложно сконцентрироваться, особенно когда очень надо
-      </p>
-    </header>
+  <!-- REC виден только в тёмной теме -->
+  <div class="header__decoration" aria-hidden="true">REC</div>
+  
+  <h1 class="header__title">no focus</h1>
+
+  <p class="header__description title-decor">
+    Что делать, когда не можешь делать ничего<br>
+    Или почему нам так сложно сконцентрироваться, особенно когда очень надо
+  </p>
+</header>
 
     <main class="main">
       <!-- Секция 1 -->
