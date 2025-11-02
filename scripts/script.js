@@ -1,68 +1,85 @@
-(function initTheme() {
-  const theme = localStorage.getItem('theme');
-  if (theme) {
-    setTheme(theme);
-  } else {
-    // Если тема не сохранена, устанавливаем "auto" по умолчанию
-    setTheme('auto');
-  }
-})();
-
-document.addEventListener('DOMContentLoaded', () => {
-  const currentTheme = [...document.documentElement.classList]
-    .find((cn) => cn.startsWith('theme-'))
-    ?.replace('theme-', '') || 'auto'; // Добавляем значение по умолчанию
+// Упрощенный и надежный код для переключения тем
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM загружен, инициализируем темы...');
   
-  const themeButtons = [
-    ...document.querySelectorAll('.header__theme-menu-button'),
-  ];
+  // Инициализация темы из localStorage или установка по умолчанию
+  const savedTheme = localStorage.getItem('theme');
+  const initialTheme = savedTheme || 'auto';
+  applyTheme(initialTheme);
+  updateActiveButton(initialTheme);
   
-  setActiveButton(themeButtons, currentTheme);
-
-  themeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const typeClass = [...button.classList].find((cn) => cn.includes('_type_'));
-      
-      if (typeClass) {
-        const chosenTheme = typeClass.split('_type_')[1];
-        setTheme(chosenTheme);
-        setActiveButton(themeButtons, chosenTheme);
-      } else {
-        console.error('Не найден класс с типом темы у кнопки:', button);
-      }
+  // Обработчики для кнопок
+  const lightButton = document.querySelector('.header__theme-menu-button_type_light');
+  const autoButton = document.querySelector('.header__theme-menu-button_type_auto');
+  const darkButton = document.querySelector('.header__theme-menu-button_type_dark');
+  
+  if (lightButton) {
+    lightButton.addEventListener('click', function() {
+      console.log('Клик на День');
+      applyTheme('light');
+      updateActiveButton('light');
     });
+  }
+  
+  if (autoButton) {
+    autoButton.addEventListener('click', function() {
+      console.log('Клик на Авто');
+      applyTheme('auto');
+      updateActiveButton('auto');
+    });
+  }
+  
+  if (darkButton) {
+    darkButton.addEventListener('click', function() {
+      console.log('Клик на Неон');
+      applyTheme('dark');
+      updateActiveButton('dark');
+    });
+  }
+  
+  // Проверка элементов
+  console.log('Найдены кнопки:', {
+    light: !!lightButton,
+    auto: !!autoButton,
+    dark: !!darkButton
   });
 });
 
-function setTheme(theme) {
-  console.log('Устанавливаем тему:', theme); // Для отладки
+function applyTheme(theme) {
+  console.log('Применяем тему:', theme);
   
-  // Полностью очищаем классы и добавляем нужную тему
-  document.documentElement.className = `theme-${theme}`;
+  // Удаляем все классы тем
+  document.documentElement.classList.remove('theme-light', 'theme-dark', 'theme-auto');
+  
+  // Добавляем нужный класс
+  document.documentElement.classList.add('theme-' + theme);
+  
+  // Сохраняем в localStorage
   localStorage.setItem('theme', theme);
+  
+  console.log('Текущие классы html:', document.documentElement.className);
 }
 
-function setActiveButton(buttonsArray, theme) {
-  console.log('Активируем кнопку для темы:', theme); // Для отладки
+function updateActiveButton(theme) {
+  console.log('Обновляем активную кнопку для темы:', theme);
   
-  buttonsArray.forEach((button) => {
+  // Сбрасываем все кнопки
+  const allButtons = document.querySelectorAll('.header__theme-menu-button');
+  allButtons.forEach(button => {
     button.classList.remove('header__theme-menu-button_active');
     button.disabled = false;
   });
   
-  const target = buttonsArray.find((button) =>
-    button.classList.contains(`header__theme-menu-button_type_${theme}`)
-  );
-  
-  if (target) {
-    target.classList.add('header__theme-menu-button_active');
-    target.disabled = true;
+  // Активируем нужную кнопку
+  const activeButton = document.querySelector(`.header__theme-menu-button_type_${theme}`);
+  if (activeButton) {
+    activeButton.classList.add('header__theme-menu-button_active');
+    activeButton.disabled = true;
+    console.log('Активирована кнопка:', theme);
   } else {
-    // Если кнопка не найдена, активируем "auto"
-    const autoButton = document.querySelector('.header__theme-menu-button_type_auto');
-    if (autoButton) {
-      autoButton.classList.add('header__theme-menu-button_active');
-      autoButton.disabled = true;
-    }
+    console.error('Кнопка для темы не найдена:', theme);
   }
 }
+
+// Проверка загрузки скрипта
+console.log('Script.js загружен');
