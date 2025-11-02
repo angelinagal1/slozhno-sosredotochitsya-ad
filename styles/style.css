@@ -316,27 +316,16 @@
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
-
-/* Адаптив для десктопа */
+/* Для десктопа */
 @media (width >= 1024px) {
-  .header__theme-menu {
-    justify-self: center;
-    align-self: center;
-    margin-block-start: 0;
-  }
-  
-  .header__theme-menu-list {
-    flex-direction: row;
-  }
-  
-  .header__description {
-    inline-size: min(100%, 491px);
+  .section:nth-of-type(2) {
+    grid-template-columns: 1fr 2fr;
   }
   
   .section:nth-of-type(2) .section__text {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
 }
