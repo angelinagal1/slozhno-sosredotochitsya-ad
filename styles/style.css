@@ -54,7 +54,7 @@
 /* Элемент REC */
 .header__decoration {
   position: absolute;
-  display: var(--rec-display, flex);
+  display: flex;
   align-items: center;
   gap: 10px;
   inset-inline-end: 28px;
@@ -72,6 +72,13 @@
   border-radius: 50%;
   background-color: var(--accent-color, #FF0070);
   box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
 /* Меню тем */
@@ -110,6 +117,10 @@
 
 .header__theme-menu-button_active {
   border-color: var(--menu-text-color, #FF0070);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:disabled {
   pointer-events: none;
 }
 
@@ -194,6 +205,12 @@
   gap: var(--gap-small, 10px);
 }
 
+.gallery__title {
+  font-weight: 700;
+  background-color: var(--accent-color, #FF0070);
+  color: var(--bg-color, #000028);
+}
+
 .gallery__list {
   display: grid;
   gap: var(--gap-small, 10px);
@@ -221,6 +238,17 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
   text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
+}
+
+.footer__text {
+  margin-block-start: 20px;
+}
+
+/* Декоративный класс для фона */
+.title-decor {
+  background-color: var(--accent-color, #FF0070);
+  color: var(--bg-color, #000028);
+  font-weight: 700;
 }
 
 /* Адаптив для планшетов */
@@ -310,5 +338,27 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+  }
+}
+
+/* Специфичные стили для разных тем */
+.theme-dark .header__decoration {
+  display: flex;
+}
+
+.theme-light .header__decoration {
+  display: none;
+}
+
+/* Для системных предпочтений */
+@media (prefers-color-scheme: light) {
+  .theme-auto .header__decoration {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-auto .header__decoration {
+    display: flex;
   }
 }
